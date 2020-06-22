@@ -1,0 +1,1209 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="电机学入门——麦克斯韦方程, YJM, YJM OpenSrc">
+    <meta name="description" content="。。。">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>电机学入门——麦克斯韦方程 | YJM OpenSrc</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">YJM OpenSrc</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">YJM OpenSrc</div>
+        <div class="logo-desc">
+            
+            。。。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">电机学入门——麦克斯韦方程</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/麦克斯韦方程组/">
+                                <span class="chip bg-color">麦克斯韦方程组</span>
+                            </a>
+                        
+                            <a href="/tags/曲线曲面积分/">
+                                <span class="chip bg-color">曲线曲面积分</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/电机/" class="post-category">
+                                电机
+                            </a>
+                        
+                            <a href="/categories/电机/电机学/" class="post-category">
+                                电机学
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-03-23
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2020-06-22
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    8.5k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    35 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <blockquote>
+<p>电机学入门第一步，从理解麦克斯韦方程组开始。<br>本文涉及大量公式，没有公式的理解没有灵魂。</p>
+</blockquote>
+<h1 id="麦克斯韦方程组"><a href="#麦克斯韦方程组" class="headerlink" title="麦克斯韦方程组"></a>麦克斯韦方程组</h1><hr>
+<p>&nbsp;&nbsp;要说写麦克斯韦方程组分析的目的，主要是在电机学的书的开篇就碰到了，一方面是为了更深入的理解电机相关的后续公式，另一方面这毕竟是电磁学的基础，甚至可以说是奠基理论，学一学总是没坏处的，还能顺带复习一下高数曲线曲面积分。</p>
+<h2 id="方程组成"><a href="#方程组成" class="headerlink" title="方程组成"></a>方程组成</h2><hr>
+<p>&nbsp;&nbsp;麦克斯韦方程组由四个方程组成：<br>1.高斯定律<br>   该定律描述电场与空间中电荷分布的关系。<br>2.高斯磁定律<br>   该定律表明磁单极子实际不存在。<br>3.法拉第电磁感应定律<br>   该定律描述时变磁场如何感应出电场。<br>4.安培-麦克斯韦定律<br>   该定律阐明，磁场有两种生成方式：一种靠传导电流，即原本的安培定律；另一种靠时变电场或位移电流，即麦克斯韦修正项。</p>
+<h1 id="梯度、散度、旋度"><a href="#梯度、散度、旋度" class="headerlink" title="梯度、散度、旋度"></a>梯度、散度、旋度</h1><hr>
+<p>&nbsp;&nbsp;由于大部分是对场的表述，会涉及大量的相关表征量，此处作为基础知识储备。</p>
+<blockquote>
+<p>其实很多都是抄的数学书啦。<br>为了便于观看，本文除图片外所有向量将使用$\overrightharpoon{v}$而不是<strong>v</strong>的形式。</p>
+</blockquote>
+<h2 id="以流量为例理解对坐标的曲面积分"><a href="#以流量为例理解对坐标的曲面积分" class="headerlink" title="以流量为例理解对坐标的曲面积分"></a>以流量为例理解对坐标的曲面积分</h2><hr>
+<p>&nbsp;&nbsp;设稳定流动的(流速与时间t无关)、不可压缩流体(假设密度为1)的速度场由<br>$$\overrightharpoon{v}(x,y,z)=P(x,y,z)\overrightharpoon{i}+Q(x,y,z)\overrightharpoon{j}+R(x,y,z)\overrightharpoon{k}$$<br>给出,$\Sigma$是速度场中的一片有向曲面，函数P(x,y,z)，Q(x,y,z)，R(x,y,z)都在$\Sigma$上连续，那么我们现在要求<strong>单位时间内流向$\Sigma$指定侧的流体的质量，即流量$\Phi$</strong>。<br>&nbsp;&nbsp;如果流体流过平面上面积为A的一个闭区域，且流体在这闭区域上各点处的流速为常向量$\overrightharpoon{v}$，设$\overrightharpoon{n}$为该平面的单位法向量，那么单位时间内流过这个闭区域的流体组成了一个底面积为A，斜高为|$\overrightharpoon{v}$|的斜柱体，如下图所示。<br><img src="%E6%B5%81%E5%90%91%E6%9B%B2%E9%9D%A2%E4%B8%80%E4%BE%A7%E7%9A%84%E6%B5%81%E9%87%8F.png" alt="流向曲面一侧的流量"><br>&nbsp;&nbsp;此时斜柱体体积为<br>$$A|\overrightharpoon{v}|\cos\theta=A\overrightharpoon{v}\cdot\overrightharpoon{n}$$<br>&nbsp;&nbsp;这即为我们要求的流量$\Phi$。当$\overrightharpoon{v}$与$\overrightharpoon{n}$的夹角为钝角时，$A\overrightharpoon{v}\cdot\overrightharpoon{n}$&lt;0,流量为负值，它表示流体实际流向 -$\overrightharpoon{n}$ 所指一侧(正值)。因此无论$\overrightharpoon{v}$与$\overrightharpoon{n}$的夹角为何值，流体通过闭区域A流向$\overrightharpoon{n}$所指一侧的流量$\Phi$均为$A\overrightharpoon{v}\cdot\overrightharpoon{n}$。<br>&nbsp;&nbsp;当平面区域转化为更为常见的曲面，流速也不再是常向量时，我们就要利用微元法来解决问题。把曲面$\Sigma$分成n小块$\Delta S_i$(同时也表示第i小块的面积)。在$\Sigma$是光滑的和$\overrightharpoon{v}$是连续的前提下，只要$\Delta S_i$的直径很小，我们就可以利用$\Delta S_i$上任一点$(\xi_i,\eta_i.\zeta_i)$处的流速<br>$$\begin{aligned}\overrightharpoon{v_i}&amp;=\overrightharpoon{v}(\xi_i,\eta_i,\zeta_i) \ &amp;=P(\xi_i,\eta_i,\zeta_i)\overrightharpoon{i}+Q(\xi_i,\eta_i,\zeta_i)\overrightharpoon{j}+R(\xi_i,\eta_i,\zeta_i)\overrightharpoon{k}\end{aligned}$$<br>代替小块$\Delta S_i$上其它各点的速度，以该点$(\xi_i,\eta_i.\zeta_i)$处曲面$\Sigma$的单位法向量<br>$$\overrightharpoon{n_i}=\cos\alpha_i\overrightharpoon{i}+\cos\beta_j\overrightharpoon{j}+\cos\gamma_k\overrightharpoon{k}$$<br>代替小块$\Delta S_i$上其它各点处的单位法向量，如下图所示：<br><img src="%E6%B5%81%E5%90%91%E6%9B%B2%E9%9D%A2%E4%B8%80%E4%BE%A7%E7%9A%84%E6%B5%81%E9%87%8F_1.png" alt="流向曲面一侧的流量_1"><br>&nbsp;&nbsp;故<strong>通过$\Delta S_i$流向指定侧的流量的近似值为</strong>：<br>$$\overrightharpoon{v_i}\cdot\overrightharpoon{n_i}\Delta S_i$$<br>将n个小块的流量求和即可，由于<br>$$\begin{aligned}&amp;\cos\alpha_i\cdot\Delta S_i\approx(\Delta S_i)<em>{yz}\&amp;\cos\beta_i\cdot\Delta S_i\approx(\Delta S_i)</em>{zx}\&amp;\cos\gamma_i\cdot\Delta S_i\approx(\Delta S_i)<em>{xy},\end{aligned}$$<br>其中$(\Delta S_i)</em>{xy}$表示$\Delta S_i$在 xOy 面上的投影区域的面积，求和式就可以写做：<br>$$\Phi\approx\displaystyle\sum_{i=1}^n[P(\xi_i,\eta_i,\zeta_i)(\Delta S_i)<em>{yz}+Q(\xi_i,\eta_i,\zeta_i)(\Delta S_i)</em>{zx}+R(\xi_i,\eta_i,\zeta_i)(\Delta S_i)<em>{xy}]$$<br>&nbsp;&nbsp;当各小块曲面的直径的最大值$\lambda \to$ 0取上和式的极限，就得到了$\Phi$的精确值，这也就是<strong>对坐标的曲面积分</strong>的定义，记作$\underset{\Sigma}{\iint}P(x,y,z)dydz+Q(x,y,z)dzdx+R(x,y,z)dxdy$；其中：$\underset{\Sigma}{\iint}P(x,y,z)dydz$称为函数P(x,y,z)在有向曲面$\Sigma$上对坐标y、z的曲面积分，$\underset{\Sigma}{\iint}Q(x,y,z)dzdx$称为函数Q(x,y,z)在有向曲面$\Sigma$上对坐标z、x的曲面积分，$\underset{\Sigma}{\iint}R(x,y,z)dxdy$称为函数R(x,y,z)在有向曲面$\Sigma$上对坐标x、y的曲面积分。此时根据前面的流量推导，曲面侧的选取(法向量的指向)会影响积分的符号。<br>&nbsp;&nbsp;这里可以看到在将各小块曲面直径最大值取极限后，以$(\Delta S_i)</em>{xy}$为例，变成了积分变量dxdy，同样表示该区域在 xOy 面上的投影面积，那么依照投影关系，曲面积分还可以写做：<br>$$\underset{\Sigma}{\iint}R(x,y,z)dxdy=\underset{\Sigma}{\iint}R(x,y,z)\cos\gamma dS$$<br>其它类似。这里$\Sigma$法向量方向取沿z轴正向，即方向余弦为<br>$$\begin{aligned}&amp;\cos\alpha=\dfrac{-z_x}{\sqrt{1+\textstyle z_x^2 +\textstyle z_y^2}} \ &amp; \cos\beta=\dfrac{-z_y}{\sqrt{1+\textstyle z_x^2 +\textstyle z_y^2}} \ &amp; \cos\gamma=\dfrac{1}{\sqrt{1+\textstyle z_x^2 +\textstyle z_y^2}},\end{aligned}$$<br>若法向量方向沿z轴负向，则取相反数。而法向量方向并不影响上面两个曲面积分的等价关系，它只影响曲面积分与二重积分的关系，即<br>$$\begin{aligned}&amp;\underset{\Sigma}{\iint}R(x,y,z)dxdy=\underset{D_{xy}}{\iint}R(x,y,z(x,y))dxdy\space\space\space\space\space\space(\Sigma取上侧)\ &amp; \underset{\Sigma}{\iint}R(x,y,z)dxdy=-\underset{D_{xy}}{\iint}R(x,y,z(x,y))dxdy\space \space\space(\Sigma取下侧)\end{aligned}$$<br>&nbsp;&nbsp;这样我们就得到了对面积的曲面积分与对坐标的曲面积分之间的关系：<br>$$\begin{aligned}&amp; \underset{\Sigma}{\iint}P(x,y,z)dydz+Q(x,y,z)dzdx+R(x,y,z)dxdy \ = &amp; \underset{\Sigma}{\iint}[P(x,y,z)\cos\alpha+Q(x,y,z)\cos\beta+R(x,y,z)\cos\gamma]dS\end{aligned}$$<br>&nbsp;&nbsp;两类曲面积分之间的关系也可以写做向量形式，即<br>$$\underset{\Sigma}{\iint}\overrightharpoon{A}\cdot d\overrightharpoon{S}=\underset{\Sigma}{\iint}\overrightharpoon{A}\cdot\overrightharpoon{n}dS$$<br>或<br>$$\underset{\Sigma}{\iint}\overrightharpoon{A}\cdot d\overrightharpoon{S}=\underset{\Sigma}{\iint}A_ndS$$<br>其中，$\overrightharpoon{A}$=(P,Q,R)，$\overrightharpoon{n}$=$(\cos\alpha,\cos\beta,\cos\gamma)$为某点处单位法向量，$d\overrightharpoon{S}=\overrightharpoon{n}dS=(dydz,dzdx,dxdy)$称为<strong>有向曲面元</strong>，$A_n$为向量$\overrightharpoon{A}$在向量$\overrightharpoon{n}$上的投影。</p>
+<h2 id="通量、散度与高斯公式"><a href="#通量、散度与高斯公式" class="headerlink" title="通量、散度与高斯公式"></a>通量、散度与高斯公式</h2><hr>
+<p>&nbsp;&nbsp;高斯公式表达了空间闭区域上的三重积分与其边界曲面上的曲面积分之间的关系，这个关系可陈述如下：<br><strong>定理1：设空间闭区域$\Omega$是由分片光滑的闭曲面$\Sigma$所围成</strong>(分片光滑的曲面是指由有限个光滑曲面组成的曲面)，<strong>若函数P(x,y,z)、Q(x,y,z)与R(x,y,z)在$\Omega$上具有一阶连续偏导数，则有：</strong><br>$$\underset{\Omega}{\iiint}\bigg(\dfrac{\partial P}{\partial x}+\dfrac{\partial Q}{\partial y}+\dfrac{\partial R}{\partial z}\bigg)dv = \underset{\Sigma}{\oiint}Pdydz+Qdzdx+Rdxdy$$<br>或<br>$$\underset{\Omega}{\iiint}\bigg(\dfrac{\partial P}{\partial x}+\dfrac{\partial Q}{\partial y}+\dfrac{\partial R}{\partial z}\bigg)dv = \underset{\Sigma}{\oiint}(P\cos\alpha+Q\cos\beta+R\cos\gamma)dS$$<br><strong>其中，$\Sigma$是$\Omega$的整个边界曲面的外侧，$\cos\alpha,\cos\beta,\cos\gamma$是$\Sigma$在点(x,y,z)处的法向量的方向余弦</strong>。这两个公式叫做<strong>高斯公式</strong>。<br>&nbsp;&nbsp;设有向量场$\overrightharpoon{F}$(x,y,z)=P(x,y,z)$\overrightharpoon{i}$+Q(x,y,z)$\overrightharpoon{j}$+R(x,y,z)$\overrightharpoon{k}$，其中函数P、Q、R均具有一阶连续偏导数，$\Sigma$是场内的一片有向曲面，$\overrightharpoon{n}$是$\Sigma$在点(x,y,z)处的单位法向量，则积分<br>$$\underset{\Sigma}{\iint}\overrightharpoon{F}\cdot\overrightharpoon{n}dS$$<br>称为向量场$\overrightharpoon{F}$通过曲面$\Sigma$向着指定侧的<strong>通量，flux</strong>(或流量)。<br>&nbsp;&nbsp;高斯公式的<strong>物理意义</strong>：设在闭区域$\Omega$上有稳定流动的、不可压缩的流体(流体密度为1)的速度场<br>$$\overrightharpoon{v}(x,y,z)=P(x,y,z)\overrightharpoon{i}+Q(x,y,z)\overrightharpoon{j}+R(x,y,z)\overrightharpoon{k},$$<br>其中函数P、Q、R均具有一阶连续偏导数，$\Sigma$是闭区域$\Omega$的边界曲面的外侧，$\overrightharpoon{n}$是曲面$\Sigma$在点(x,y,z)处的单位法向量，则可以知道，<strong>单位时间内流体经过曲面$\Sigma$流向指定侧的流体总质量就是</strong><br>$$\underset{\Sigma}{\iint}\overrightharpoon{v}\cdot\overrightharpoon{n}dS=\underset{\Sigma}{\iint}v_ndS=\underset{\Sigma}{\iint}Pdydz+Qdzdx+Rdxdy.$$<br>&nbsp;&nbsp;因此，高斯公式的右端可以解释为速度场$\overrightharpoon{v}$通过闭曲面$\Sigma$流向外侧的通量，即<strong>流体在单位时间内离开闭区域$\Omega$的总质量(假定流体密度为1)</strong>。由于假定流体不可压缩且流动稳定，因此在流体离开区域$\Omega$时，$\Omega$内部必须有产生流体的“源头”产生出同样多的流体来进行补充，故高斯公式左端可解释为<strong>分布在$\Omega$内的源头在单位时间内所产生的流体的总质量</strong>。<br>&nbsp;&nbsp;以闭区域$\Omega$的体积<strong>V</strong>除以高斯公式两端，得：<br>$$\frac{1}{V}\underset{\Omega}{\iiint}\bigg(\dfrac{\partial P}{\partial x}+\dfrac{\partial Q}{\partial y}+\dfrac{\partial R}{\partial z}\bigg)dv = \frac{1}{V}\underset{\Sigma}{\oiint}Pdydz+Qdzdx+Rdxdy=\frac{1}{V}\underset{\Sigma}{\iint}v_ndS$$<br>&nbsp;&nbsp;上式<strong>左端表示$\Omega$内的源头在单位时间单位体积内所产生的流体质量的平均值</strong>。应用积分中值定理于左端，则有：<br>$$\bigg(\dfrac{\partial P}{\partial x}+\dfrac{\partial Q}{\partial y}+\dfrac{\partial R}{\partial z}\bigg)\bigg|_{(\xi,\eta,\zeta)}=\frac{1}{V}\underset{\Sigma}{\iint}v_ndS$$<br>&nbsp;&nbsp;这里$(\xi,\eta,\zeta)$是$\Omega$内的某个点，令$\Omega$缩向一点M(x,y,z)，取上式的极限，则有：<br>$$\dfrac{\partial P}{\partial x}+\dfrac{\partial Q}{\partial y}+\dfrac{\partial R}{\partial z}=\underset{\Omega\to M}{\lim}\dfrac{1}{V}\underset{\Sigma}{\oiint}v_ndS.$$<br>&nbsp;&nbsp;上式左端称为速度场$\overrightharpoon{v}$在点M处的<strong>通量密度</strong>或<strong>散度</strong>，记作div $\overrightharpoon{v}(M)$，即：<br>$$div\space\overrightharpoon{v}(M)=\dfrac{\partial P}{\partial x}+\dfrac{\partial Q}{\partial y}+\dfrac{\partial R}{\partial z}.$$<br>&nbsp;&nbsp;$div\space\overrightharpoon{v}(M)$在这里可以看作稳定流动的不可压缩流体在点M处的<strong>源头强度</strong>。因此我们可以更加精准的总结：<strong>矢量场的散度是指当体积趋向于零时，每单位体积内的矢量向外的净通量。实质上，矢量场的散度表示从一个点出发的场的通量，它指出了在那个点处的合成源。矢量场的散度是一个纯数值</strong>。<br>&nbsp;&nbsp;在$div\space\overrightharpoon{v}(M)$ &gt; 0的点处，流体从该点向外发散，表示流体在该点处有<strong>正源</strong>；在$div\space\overrightharpoon{v}(M)$ &lt; 0的点处(即矢量向外的净通量为负值，这与前面的描述并不矛盾)，流体向该点汇聚，表示流体在该点处有吸收流体的<strong>负源</strong>(又称为<strong>汇</strong>或<strong>洞</strong>)；在$div\space\overrightharpoon{v}(M)$ = 0的点处，表示流体在该点处<strong>无源</strong>。<br>&nbsp;&nbsp;对于一般的向量场$\overrightharpoon{F}$(x,y,z)=P(x,y,z)$\overrightharpoon{i}$+Q(x,y,z)$\overrightharpoon{j}$+R(x,y,z)$\overrightharpoon{k}$，记<br>$$div\space\overrightharpoon{F}=\dfrac{\partial P}{\partial x}+\dfrac{\partial Q}{\partial y}+\dfrac{\partial R}{\partial z}$$<br>为向量场$\overrightharpoon{F}$的散度，此处利用向量微分算子$\nabla$，也可表达为<br>$$div\space\overrightharpoon{F}=\nabla\cdot\overrightharpoon{F}$$<br>&nbsp;&nbsp;若向量场$\overrightharpoon{F}$的散度处处为零，那么称向量场$\overrightharpoon{F}$为<strong>无源场</strong>。<br>&nbsp;&nbsp;利用向量场$\overrightharpoon{F}$的通量和散度，高斯公式可以改写成下面的向量形式：<br>$$\underset{\Omega}{\iiint}div\space \overrightharpoon{F}dv=\underset{\Sigma}{\iint}F_ndS$$<br>或<br>$$\underset{\Omega}{\iiint}\nabla\cdot\overrightharpoon{F}dv=\underset{\Sigma}{\iint}F_ndS$$<br>上式也被称为<strong>散度定理</strong>，它表明，<strong>向量场$\overrightharpoon{F}$通过闭曲面$\Sigma$流向外侧的通量等于向量场$\overrightharpoon{F}$的散度在闭曲面$\Sigma$所围区域$\Omega$上的积分</strong>。或者也可以描述为：<strong>矢量场通过任意闭合曲面向外的总通量等于矢量场的散度在闭合曲面所包围的体积内的积分</strong>。这个定理使得体积分和面积分能够相互转化。</p>
+<blockquote>
+<p>由于涉及了$\nabla$算子，接下来也同样会用到，便简单介绍。</p>
+</blockquote>
+<h3 id="向量微分算子-nabla"><a href="#向量微分算子-nabla" class="headerlink" title="向量微分算子$\nabla$"></a>向量微分算子$\nabla$</h3><hr>
+<p>&nbsp;&nbsp;向量微分算子，或Nabla算子(Nabla Operator)，或劈形算子。其形式化定义为<br>$$\nabla=\dfrac{d}{d\overrightharpoon{r}}$$<br>&nbsp;&nbsp;在n为空间中，分母d$\overrightharpoon{r}$为包含n个分量的向量，故$\nabla$为n维向量算子。以三维空间为例：<br>$$\nabla=\dfrac{\partial}{\partial x}\overrightharpoon{i}+\dfrac{\partial}{\partial y}\overrightharpoon{j}+\dfrac{\partial}{\partial z}\overrightharpoon{k}$$<br>或<br>$$\nabla=(\dfrac{\partial}{\partial x},\dfrac{\partial}{\partial y},\dfrac{\partial}{\partial z})$$<br>&nbsp;&nbsp;严格来说，$\nabla$并不是一个特定的算子，而是一个方便使用的数学符号，$\nabla$作用于不同类型的量，得到的就是不同类型的新量，例如<br>$$\begin{aligned}grad\space f&amp;=\nabla f \div\space \overrightharpoon{v} &amp;=\nabla\cdot\overrightharpoon{v}\curl\space \overrightharpoon{v} &amp;=\nabla\times\overrightharpoon{v}\end{aligned}$$</p>
+<h2 id="环流量、旋度与斯托克斯公式"><a href="#环流量、旋度与斯托克斯公式" class="headerlink" title="环流量、旋度与斯托克斯公式"></a>环流量、旋度与斯托克斯公式</h2><hr>
+<p>&nbsp;&nbsp;斯托克斯公式描述了曲面$\Sigma$上的曲面积分与沿着$\Sigma$的边界曲线的曲线积分之间的关系。这个关系可陈述如下：<br><strong>定理2：设$\Gamma$为分段光滑的空间有向闭曲线，$\Sigma$是以$\Gamma$为边界的分片光滑的有向曲面，$\Gamma$的正向与$\Sigma$的侧符合右手规则(此时称$\Gamma$为有向曲面$\Sigma$的正向边界曲线)，若函数P(x,y,z),Q(x,y,z),R(x,y,z)在曲面$\Sigma$(连同边界$\Gamma$)上具有一阶连续偏导数，则有</strong><br>$$\underset{\Sigma}{\iint}\bigg(\dfrac{\partial R}{\partial y}-\dfrac{\partial Q}{\partial z}\bigg)dydz+\bigg(\dfrac{\partial P}{\partial z}-\dfrac{\partial R}{\partial x}\bigg)dzdx+\bigg(\dfrac{\partial Q}{\partial x}-\dfrac{\partial P}{\partial y}\bigg)dxdy=\oint_\Gamma Pdx+Qdy+Rdz$$<br>&nbsp;&nbsp;该公式称为斯托克斯公式。为了便于记忆，利用行列式记号将斯托克斯公式改为：<br>$$\underset{\Sigma}{\iint}\begin{vmatrix}dydz &amp; dzdx &amp; dxdy \ \dfrac{\partial}{\partial x} &amp; \dfrac{\partial}{\partial y} &amp; \dfrac{\partial}{\partial z} \ P &amp; Q &amp; R\end{vmatrix}=\oint_\Gamma Pdx+Qdy+Rdz$$<br>&nbsp;&nbsp;将其中的行列式按第一行展开，并把$\dfrac{\partial}{\partial y}$与R的积理解为$\dfrac{\partial R}{\partial y}$，其他同理，于是这个行列式就写为定理中的公式左端。<br>&nbsp;&nbsp;利用两类曲面积分之间的关系，可得斯托克斯公式的另一形式：<br>$$\underset{\Sigma}{\iint}\begin{vmatrix}\cos\alpha &amp; \cos\beta &amp; \cos\gamma \ \dfrac{\partial}{\partial x} &amp; \dfrac{\partial}{\partial y} &amp; \dfrac{\partial}{\partial z} \ P &amp; Q &amp; R\end{vmatrix}dS=\oint_\Gamma Pdx+Qdy+Rdz$$<br>&nbsp;&nbsp;其中$\overrightharpoon{n}$=($\cos\alpha,\cos\beta,\cos\gamma$)为有向曲面$\Sigma$在点(x,y,z)处的单位法向量，如果$\Sigma$是 xOy 面上的一块平面闭区域，则斯托克斯公式就变成格林公式，因此格林公式是斯托克斯公式的一种特殊形式。<br>&nbsp;&nbsp;设有向量场$\overrightharpoon{F}$(x,y,z)=P(x,y,z)$\overrightharpoon{i}$+Q(x,y,z)$\overrightharpoon{j}$+R(x,y,z)$\overrightharpoon{k}$，其中函数P、Q、R均连续。$\Gamma$是$\overrightharpoon{F}$定义域内的一条分段光滑的有向闭曲线，$\overrightharpoon{\tau}$是$\Gamma$在点(x,y,z)处的单位切向量，则积分<br>$$\oint_\Gamma\overrightharpoon{F}\cdot\overrightharpoon{\tau}ds$$<br>称为向量场$\overrightharpoon{F}$沿有向闭曲线$\Gamma$的<strong>环流量</strong>。<br>&nbsp;&nbsp;由两类曲线积分之间的关系(后续补充，参照曲面积分即可)，环流量又可表达为<br>$$\oint_\Gamma\overrightharpoon{F}\cdot\overrightharpoon{\tau}ds=\oint_\Gamma\overrightharpoon{F}\cdot d\overrightharpoon{r}=\oint_\Gamma Pdx+Qdy+Rdz$$<br>其中，$d\overrightharpoon{r}=\overrightharpoon{\tau} ds=(dx,dy,dz)$称为<strong>有向曲线元</strong>。类似于由向量场的通量可以引出向量场在一点处的通量密度(散度)一样，<strong>由向量场沿一闭曲线的环流量可以引出向量场在一点处的环量密度或旋度</strong>，它是一个向量，定义如下：<br>&nbsp;&nbsp;设有向量场$\overrightharpoon{F}$(x,y,z)=P(x,y,z)$\overrightharpoon{i}$+Q(x,y,z)$\overrightharpoon{j}$+R(x,y,z)$\overrightharpoon{k}$，其中函数P、Q、R均具有一阶连续偏导数，设有向量场$\overrightharpoon{F}$通过的不闭合曲面$\Sigma$，其边界为闭合曲线$\Gamma$，<strong>则向量场$\overrightharpoon{F}$沿$\Gamma$的环量除以该曲面的面积$\Delta S$，并当曲面面积收缩趋向至0，曲面$\Sigma$变为曲面微分元(可看作某点)时，我们就得到了这一点的环量密度，此时给这环量密度一个方向，使它与向量旋转的方向符合右手法则，成为一个矢量，这样得到的矢量就可以提供向量场在这一点的旋转性质</strong>。数学表述为：<br>$$\begin{aligned}\mathbf{rot}\space \overrightharpoon{F} &amp; =\underset{\Delta S\to 0}{\lim}\dfrac{\oint_\Gamma\overrightharpoon{F}d\overrightharpoon{r}}{\Delta S}\cdot \overrightharpoon{a_n} \ &amp; \ &amp; =\bigg(\dfrac{\partial F_z}{\partial y}-\dfrac{\partial F_y}{\partial z}\bigg)\overrightharpoon{a_x}+\bigg(\dfrac{\partial F_x}{\partial z}-\dfrac{\partial F_z}{\partial x}\bigg)\overrightharpoon{a_y}+\bigg(\dfrac{\partial F_y}{\partial x}-\dfrac{\partial F_x}{\partial y}\bigg)\overrightharpoon{a_z}\end{aligned}$$<br>&nbsp;&nbsp;其中$\overrightharpoon{a_n}$为曲面微分元的单位法向量。同样，这个矢量也可以表示为：<br>$$\bigg(\dfrac{\partial R}{\partial y}-\dfrac{\partial Q}{\partial z}\bigg)\overrightharpoon{i}+\bigg(\dfrac{\partial P}{\partial z}-\dfrac{\partial R}{\partial x}\bigg)\overrightharpoon{j}+\bigg(\dfrac{\partial Q}{\partial x}-\dfrac{\partial P}{\partial y}\bigg)\overrightharpoon{k}$$<br>&nbsp;&nbsp;那么这个矢量称为向量场$\overrightharpoon{F}$的<strong>旋度</strong>，记作$\mathbf{rot}\space \overrightharpoon{F}$或$\mathbf{curl}\space \overrightharpoon{F}$，即<br>$$\mathbf{rot}\space \overrightharpoon{F}=\bigg(\dfrac{\partial R}{\partial y}-\dfrac{\partial Q}{\partial z}\bigg)\overrightharpoon{i}+\bigg(\dfrac{\partial P}{\partial z}-\dfrac{\partial R}{\partial x}\bigg)\overrightharpoon{j}+\bigg(\dfrac{\partial Q}{\partial x}-\dfrac{\partial P}{\partial y}\bigg)\overrightharpoon{k}$$<br>&nbsp;&nbsp;与散度的推导类似，矢量场的旋度是当曲面面积S收缩至零时，矢量场沿包围不闭合曲面的边界的线积分。<strong>实质上，旋度是矢量场关于一个点的合成环流量，它可以表示三维向量场对某一点附近的微元造成的旋转程度。旋度矢量的方向是这一点的合成环量的旋转轴，与向量旋转的方向满足右手法则，而旋度矢量的大小是合成环量与旋转路径所围成的曲面微元面积之比</strong>。<br>&nbsp;&nbsp;利用向量微分算子$\nabla$，向量场$\overrightharpoon{F}$的旋度$\mathbf{rot}\space \overrightharpoon{F}$可表示为$\nabla\times\overrightharpoon{F}$，即<br>$$\mathbf{rot}\space \overrightharpoon{F}=\nabla\times\overrightharpoon{F}=\begin{vmatrix}\overrightharpoon{i} &amp; \overrightharpoon{j} &amp; \overrightharpoon{k} \ \dfrac{\partial}{\partial x} &amp; \dfrac{\partial}{\partial y} &amp; \dfrac{\partial}{\partial z} \ P &amp; Q &amp; R\end{vmatrix}.$$<br>&nbsp;&nbsp;若<strong>向量场$\overrightharpoon{F}$的旋度$\mathbf{rot}\space \overrightharpoon{F}$处处为零，则称向量场$\overrightharpoon{F}$为无旋场</strong>，而<strong>一个无源且无旋的向量场称为调和场</strong>。调和场是物理学中一类重要的向量场，它与调和函数有着密切的联系。<br>&nbsp;&nbsp;设斯托克斯公式中的有向曲面$\Sigma$在点(x,y,z)处的单位法向量为<br>$$\overrightharpoon{n}=\cos\alpha\overrightharpoon{i}+\cos\beta\overrightharpoon{j}+\cos\gamma\overrightharpoon{k}$$<br>&nbsp;&nbsp;则<br>$$\mathbf{rot}\space \overrightharpoon{F}\cdot\overrightharpoon{n}=\nabla\times\overrightharpoon{F}\cdot\overrightharpoon{n}=\begin{vmatrix}\cos\alpha &amp; \cos\beta &amp; \cos\gamma \ \dfrac{\partial}{\partial x} &amp; \dfrac{\partial}{\partial y} &amp; \dfrac{\partial}{\partial z} \ P &amp; Q &amp; R\end{vmatrix}$$<br>&nbsp;&nbsp;于是，斯托克斯公式可以写为向量形式，即<br>$$\underset{\Sigma}{\iint}\mathbf{rot}\space \overrightharpoon{F}\cdot\overrightharpoon{n}dS=\oint_\Gamma\overrightharpoon{F}\cdot\overrightharpoon{\tau}ds$$<br>或<br>$$\underset{\Sigma}{\iint}(\mathbf{rot}\space\overrightharpoon{F})_ndS=\oint_\Gamma\overrightharpoon{F}_\tau ds$$<br>&nbsp;&nbsp;上式表示向量场$\overrightharpoon{F}$沿有向闭曲线$\Gamma$的环流量等于向量场$\overrightharpoon{F}$的旋度通过曲面$\Sigma$的通量，这里$\Gamma$的正向应与$\Sigma$的侧符合右手规则。这使得面积分与线积分之间得以相互转化。<br>&nbsp;&nbsp;这里给出了从力学角度对旋度$\mathbf{rot}\space\overrightharpoon{F}$的解释：<br>&nbsp;&nbsp;设有刚体绕定轴 <em>L</em> 转动，角速度为 $\omega$ ，<em>M</em> 为刚体内任意一点，在定轴 <em>L</em> 上任取一点 <em>O</em> 为坐标原点，作空间直角坐标系，使 z 轴与定轴 <em>L</em> 重合，则 $\overrightharpoon{\omega}=\omega\overrightharpoon{k}=(0,0,\omega)$ ，而点 <em>M</em> 可用向量$\overrightharpoon{r}=\overrightharpoon{OM}=(x,y,z)$来确定，则可知点 <em>M</em> 的线速度$\overrightharpoon{v}$可表示为(注意角速度方向与线速度方向满足右手法则)<br>$$\overrightharpoon{v}=\overrightharpoon{\omega}\times\overrightharpoon{r}$$<br>&nbsp;&nbsp;由此有：<br>$$\overrightharpoon{v}=\begin{vmatrix}\overrightharpoon{i} &amp; \overrightharpoon{j} &amp; \overrightharpoon{k} \ 0 &amp; 0 &amp; \omega \ x &amp; y &amp; z\end{vmatrix}=(-\omega y,\omega x,0)$$<br>&nbsp;&nbsp;而线速度的旋度<br>$$\mathbf{rot}\space\overrightharpoon{v}=\begin{vmatrix}\overrightharpoon{i} &amp; \overrightharpoon{j} &amp; \overrightharpoon{k} \ \dfrac{\partial}{\partial x} &amp; \dfrac{\partial}{\partial y} &amp; \dfrac{\partial}{\partial z} \ -\omega y &amp; \omega x &amp; 0\end{vmatrix}=(0,0,2\omega)=2\overrightharpoon{\omega}$$<br>&nbsp;&nbsp;可以看到速度场的旋度与刚体角速度的关系，同方向且成二倍关系，若考虑转动惯量，速度场的旋度与角加速度也有类似的关系。<br>&nbsp;&nbsp;</p>
+<blockquote>
+<p>那么接下来就从电磁学的角度解释散度与旋度等场的表征量。</p>
+</blockquote>
+<h1 id="高斯定律"><a href="#高斯定律" class="headerlink" title="高斯定律"></a>高斯定律</h1><hr>
+<h2 id="静电学高斯定律"><a href="#静电学高斯定律" class="headerlink" title="静电学高斯定律"></a>静电学高斯定律</h2><hr>
+<p>&nbsp;&nbsp;在这里要说的高斯定律其实就是在静电场与磁场中去分别解释物理世界。前面已经引入了高斯公式，在电磁学中主要用到的是通量形式，即前面提到的通过曲面的通量等于散度在该区域内的积分。而散度其实就是通量密度，在定义中可以看到是将产生通量的场缩向了一点，故我们理解为辐射能量或吸收能量的一个<strong>源</strong>。那么在静电场中，这个源就是某一个电荷，它激发电场，产生电通量。我们知道这样的规律：<strong>通过一个闭合曲面的电通量是和这个曲面内包含的电荷总量成正比的</strong>，这就是静电场中的高斯定律的解释，即真空条件下：<br>$$\Phi=\oiint_S\overrightharpoon{E}\cdot d\overrightharpoon{S}=\dfrac{1}{\varepsilon_0}\displaystyle\sum_{i=1}^n q_i=\oiiint_V \rho_0dV\space\space\space\space(1-1)$$<br>&nbsp;&nbsp;这反映了静电场是有源场，或者叫散度场，其源为电荷。在静电场中，通过任意闭合曲面的电通量，等于该闭合曲面所包围的电荷的代数和的$\dfrac{1}{\varepsilon_0}$倍，而与闭合曲面外的电荷无关，与闭合曲面内的电荷位置分布无关。这里的$\varepsilon$为真空电容率或真空介电常数，$\rho_0$为该处电荷密度即对应的散度(当然如果此处电荷密度并不均匀，或者有体积形状影响而不能等效为质点，都应该将$\rho_0$看作密度函数)。静电场还有其他的性质(库仑定律、场强的矢量叠加原理等)，这里就不再细说。</p>
+<blockquote>
+<p>此处的高斯定律与库仑定律引出了物理世界的一个规律：平方反比规律，有空分析一下。</p>
+</blockquote>
+<p>&nbsp;&nbsp;式(1-1)即麦克斯韦方程组积分形式的第一个式子。当不是真空条件，电介质极化后产生的极化电荷改变了原来的电场分布，于是上式变成：<br>$$\Phi=\oiint_S\overrightharpoon{D}\cdot d\overrightharpoon{S}=\dfrac{1}{\varepsilon_0}\displaystyle\sum (q_0+q_p)\space\space\space\space(*)$$</p>
+<blockquote>
+<p>这里下面的推导可能有些问题，涉及一些极化强度和电荷密度的问题，还有对电位移的理解，现在没必要抠那么细，留待后续补充吧。</p>
+</blockquote>
+<p>&nbsp;&nbsp;<strong>式(*)表示非真空静电场中任意闭合曲面的电位移通量等于该曲面内的自由电荷的代数和</strong>。两边同时除以该处区域体积并取极限(求散度的操作)，等式左边变为场的散度，等式右边变为电荷密度，即：<br>$$\nabla\cdot\overrightharpoon{E}=\dfrac{1}{\varepsilon_0}(\rho_0+\rho_p)\space\space\space\space(<strong>)$$<br>&nbsp;&nbsp;进一步引入概念</strong>电位移矢量<strong>，</strong>记作$\overrightharpoon{D}$<strong>，有<br>$$\overrightharpoon{D}=\varepsilon_0\overrightharpoon{E}+\overrightharpoon{P}$$<br>&nbsp;&nbsp;其中$\overrightharpoon{P}$为</strong>电极化强度<em><em>，则式(\</em>\</em>)就变为<br>$$\nabla\cdot\overrightharpoon{D}=\rho_0\space\space\space\space(2-1)$$<br>&nbsp;&nbsp;式(2-1)即静电学高斯定律的微分形式，也是麦克斯韦方程组微分形式的第一个式子，表示电位移的散度等于该点电荷密度。</p>
+<h2 id="高斯磁定律"><a href="#高斯磁定律" class="headerlink" title="高斯磁定律"></a>高斯磁定律</h2><hr>
+<p>&nbsp;&nbsp;在磁场中，高斯定律的解释出现了本质的区别，无论在稳恒磁场还是时变磁场下，由于磁力线都是闭合的，任何一条磁力线进入某个闭合曲面，必然会从闭合曲面内部出来，在某处形成闭合，那么由于通量在侧的方向选择不同符号不同的条件下，一定会有磁通量正负相抵，即：<br>$$\Phi=\oiint_S\overrightharpoon{B}\cdot d\overrightharpoon{S}=0\space\space\space\space(1-2)$$<br>&nbsp;&nbsp;对应的微分形式为：<br>$$\nabla\cdot\overrightharpoon{B}=0\space\space\space\space(2-2)$$<br>&nbsp;&nbsp;因此，磁场中的高斯定理说明了自然界<strong>不存在磁单极子</strong>，磁场为无源场，磁感线(磁力线)都是无头无尾的闭合曲线；磁场量可以由源电流的瞬时值唯一确定，因而磁场随时间的变化直接跟随源电流的时间变化。<br>&nbsp;&nbsp;</p>
+<h1 id="法拉第电磁感应定律"><a href="#法拉第电磁感应定律" class="headerlink" title="法拉第电磁感应定律"></a>法拉第电磁感应定律</h1><hr>
+<p>&nbsp;&nbsp;法拉第电磁感应定律是描述<strong>磁生电</strong>的物理规律，这个大多数人耳熟能详，也知道那个最简单的实验：放置两块分别为N、S极的永磁体，它们中间会形成大致平行的磁感线束，那么用一个金属棒在它们中间作切割磁感线运动，此时可以测得金属棒两端产生了电流。如果金属棒不动，而去改变磁场强度或磁场分布，同样能使金属棒两端产生电流。<br>&nbsp;&nbsp;这个实验的过程，实际上可以看作在改变两个物理量，一个是磁感线通过回路的面积，一个是磁场强度，而它们的矢量点积就是回路的磁通量。因此电磁感应定律可以描述为：<strong>若通过回路(曲面)的磁通量发生了改变，回路中就会产生电路，且磁通量改变的越快，产生的电流越大</strong>。注意这里的曲面一定不是闭曲面，由高斯磁定律我们知道通过闭曲面的磁通量一定为0，那么一定无法产生电流。</p>
+<blockquote>
+<p>感生、动生、感应的关系以及感生与动生本质是否一样，还需进一步分析。</p>
+</blockquote>
+<p>&nbsp;&nbsp;这里的产生的电流要如何描述呢？定律已经说明了，这个过程叫感应，产生的电流叫感应电流，产生的电动势叫感应电动势。这个在高中已经学的很明白了，而且还有叫法上的区分：通过前面的实验能得知，感应电流来源有两种，那么称导体切割磁感线运动产生的电流(电动势)为动生电流(电动势)；称改变磁通量得到的电流(电动势)为感生电流(电动势)。<br>&nbsp;&nbsp;下面统一称磁通量改变而激发的电场为感生电场。感生电场又被称为涡旋电场，可以用围绕在磁感线周围的、闭合的电场线描述，与静电场有区别。涡旋电场被定义为随时间变化着的磁场在其周围空间激发的一种电场，能够对处于其中的带电粒子施以力的作用。<strong>涡旋电场是非保守场即非势场，涡旋电场力是导致感应电动势的非静电力</strong>。</p>
+<blockquote>
+<p>涉及保守场(无旋场且第二类曲线积分与路径无关)、无旋场、有势场等概念区分，后面会在其他文章中讨论，这里就不再详细展开。<br>并且涡旋电场只是一种虚拟描述，实际并不存在，只是洛伦兹力的一种反映，这一点也还需要进一步分析。</p>
+</blockquote>
+<p>&nbsp;&nbsp;那么在磁感线束周围感生出了涡旋电场，而涡旋电场又对处于其中的带电粒子施以力的作用，这时就又要提及电动势的定义：电动势的大小等于非静电力把单位正电荷从电源负极经过电源内部移到电源正极所做的功。而在涡旋电场中，电动势emf我们可以这样去描述：假设涡旋电场中有闭合回路C，则<br>$$emf=\oint_C\overrightharpoon{E}\cdot d\overrightharpoon{l}$$<br>&nbsp;&nbsp;其单位是伏特(V)。其中$d\overrightharpoon{l}=\overrightharpoon{\tau}ds$是曲线C的有向曲线元，$\overrightharpoon{E}$为电场强度矢量(单位为伏特/米)。<strong>emf是不为0的，这里也验证了涡旋电场为非势场，即它沿闭合曲线的环量不为零。在有势场中，例如静电场，沿任意闭合曲线的环量均为0(静电场为无旋场)</strong>。根据法拉第电磁感应定律，这个电动势由磁通量的时间变化率决定：<br>$$\oint_C\overrightharpoon{E}\cdot d\overrightharpoon{l}=-\dfrac{\partial}{\partial t}\iint_S\overrightharpoon{B}\cdot d\overrightharpoon{S}\space\space\space\space(1-3)$$<br>&nbsp;&nbsp;这便是麦克斯韦方程组积分形式的第三个式子。其中S为穿过闭合回路C所包围的不闭合曲面。注意磁通量实际上是关于(x,y,z,t)的变化量，故这里需要用偏微分。这里的负号反映的是楞次定律的内容，它表明<strong>回路中所产生的感应电动势的极性，总是使产生的感应电流$i_{induced}$所再产生的磁感应强度$\overrightharpoon{B}_{induced}$，趋向于阻碍原磁感应强度$\overrightharpoon{B}$的任何变化</strong>。也是自然界经典负反馈的体现。<br>&nbsp;&nbsp;对上式应用斯托克斯公式即可得到电磁感应定律的微分形式(2-3)：<br>$$\nabla\times\overrightharpoon{E}=-\dfrac{\partial\overrightharpoon{B}}{\partial t}\space\space\space\space(2-3)$$<br>&nbsp;&nbsp;代入求旋度的结果，则有：<br>$$\begin{aligned} &amp; \bigg(\dfrac{\partial\overrightharpoon{E}_z}{\partial y}-\dfrac{\partial\overrightharpoon{E}_y}{\partial z}\bigg)\overrightharpoon{a}_x+\bigg(\dfrac{\partial\overrightharpoon{E}_x}{\partial z}-\dfrac{\partial\overrightharpoon{E}_z}{\partial x}\bigg)\overrightharpoon{a}_y+\bigg(\dfrac{\partial\overrightharpoon{E}_y}{\partial x}-\dfrac{\partial\overrightharpoon{E}_x}{\partial y}\bigg)\overrightharpoon{a}_z \ &amp; \ = &amp; -\dfrac{\partial\overrightharpoon{B}_x}{\partial t}\overrightharpoon{a}_x-\dfrac{\partial\overrightharpoon{B}_y}{\partial t}\overrightharpoon{a}_y-\dfrac{\partial\overrightharpoon{B}_z}{\partial t}\overrightharpoon{a}_z\end{aligned}$$<br>&nbsp;&nbsp;匹配各分量，则有：<br>$$\begin{aligned} &amp; \dfrac{\partial\overrightharpoon{E}_z}{\partial y}-\dfrac{\partial\overrightharpoon{E}_y}{\partial z}=-\dfrac{\partial\overrightharpoon{B}_x}{\partial t} \ &amp; \dfrac{\partial\overrightharpoon{E}_x}{\partial z}-\dfrac{\partial\overrightharpoon{E}_z}{\partial x}=-\dfrac{\partial\overrightharpoon{B}_y}{\partial t} \ &amp; \dfrac{\partial\overrightharpoon{E}_y}{\partial x}-\dfrac{\partial\overrightharpoon{E}_x}{\partial y}=-\dfrac{\partial\overrightharpoon{B}_z}{\partial t}\end{aligned}$$</p>
+<h1 id="安培-麦克斯韦定律"><a href="#安培-麦克斯韦定律" class="headerlink" title="安培-麦克斯韦定律"></a>安培-麦克斯韦定律</h1><hr>
+<p>&nbsp;&nbsp;法拉第电磁感应定律表明时变磁场能够产生或感应出电场，而安培定律表明反之也是正确的，即：<strong>时变电场能够产生或感应出磁场</strong>。在这里都说麦克斯韦是对安培定律进行了修正，我们就开一小章说一下修正了什么。当然，直接理解安培-麦克斯韦定律也不会漏下什么。</p>
+<h2 id="麦克斯韦对安培定律修正了什么"><a href="#麦克斯韦对安培定律修正了什么" class="headerlink" title="麦克斯韦对安培定律修正了什么"></a>麦克斯韦对安培定律修正了什么</h2><hr>
+<p>&nbsp;&nbsp;</p>
+<h2 id="定律阐述"><a href="#定律阐述" class="headerlink" title="定律阐述"></a>定律阐述</h2><hr>
+<p>&nbsp;&nbsp;安培-麦克斯韦定律的主要思想是：<strong>穿过曲面的电流或者变化的电通量会产生沿曲面边界的环绕磁场</strong>。数学表述为：<br>$$\oint_C\overrightharpoon{B}\cdot d\overrightharpoon{l}=\mu_0\bigg(I_{enc}+\varepsilon_0\dfrac{d}{dt}\iint_S\overrightharpoon{E}\cdot\overrightharpoon{n}dS\bigg)\space\space\space\space(<strong>*)$$<br>&nbsp;&nbsp;上式是真空中的安培-麦克斯韦定律表述，其中$\mu_0$为真空磁导率，$I_{enc}$为穿过曲面、被边界包围的电流，$\varepsilon_0$为真空电容率。等式左侧为沿某一路径C的磁场环量，这个磁场环量即该闭合路径的</strong>磁动势(mmf)**，它正比于这个路径C所包围的电流和以此路径为边界的任意曲面S的电通量变化率。如果要用它来确定磁场强度矢量的值，还需要将$\overrightharpoon{B}$从点积和积分中提出来，要选择合适的安培环路。<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;<br>&nbsp;&nbsp;</p>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><hr>
+<p>&nbsp;&nbsp;其实我是没想到分析一个麦克斯韦方程组，会牵出这么多东西，而且许多介绍方程组的文章彼此并不统一，公式写法多样，引入方式也极具多样化，导致很多初学者会很懵。这中间我搞来了好多本书、论文参考，方程组本身写起来很简单，但是如果想要将每一个涉及的点都详细展开，那将会写出一本厚厚的书，尤其是夹带了数学背景的前提下，简单的几个方程就变得极其复杂化。我写到这里就已经感觉不能继续深究下去了，电磁学、电磁场与电磁波、电动力学、场论、矢量分析……后面还会涉及的越来越多，这里是写不完的，毕竟我只是为了理解电机的几个公式，有些内容留待之后在其他文章中补充吧。</p>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">YJM</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://www.yjm-opensrc.xyz/2020/03/23/dian-ji-xue-ru-men-mai-ke-si-wei-fang-cheng/">https://www.yjm-opensrc.xyz/2020/03/23/dian-ji-xue-ru-men-mai-ke-si-wei-fang-cheng/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">YJM</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/麦克斯韦方程组/">
+                                    <span class="chip bg-color">麦克斯韦方程组</span>
+                                </a>
+                            
+                                <a href="/tags/曲线曲面积分/">
+                                    <span class="chip bg-color">曲线曲面积分</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechatpay.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2020/03/30/ping-fang-fan-bi-gui-lu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="平方反比规律">
+                        
+                        <span class="card-title">平方反比规律</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            人们发现电荷有正负两种，而且同性相斥，异性相吸。后来库伦发现了电荷之间相互作用的定量关系，它发现电荷之间的作用力跟距离的平方成反比的。也就是说，如果我把两个电荷之间的距离扩大为原来的两倍，这两个电荷之间的作用力就会减少为原来的四分之一，扩大
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-03-30
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            YJM
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/02/16/wo-zai-jian-li-jing-tai-bo-ke-shi-du-yu-dao-liao-shi-me-er/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="我在建立静态博客时都遇到了什么（二）">
+                        
+                        <span class="card-title">我在建立静态博客时都遇到了什么（二）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+
+搭好环境后其实已经可以开始写作了，但总会遇到新的小毛病或者又想添加新的插件，这一篇就是对后续内容的补充，不定期更新。
+现在想要添加的是对ssh公钥配置、转义字符与数学公式渲染的彻底解决、hexo server为什么要重设端口、网页模板的
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-02-16
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Hexo/" class="post-category">
+                                    Hexo
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Hexo/">
+                        <span class="chip bg-color">Hexo</span>
+                    </a>
+                    
+                    <a href="/tags/Blog/">
+                        <span class="chip bg-color">Blog</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: YJM OpenSrc<br />'
+            + '文章作者: YJM<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">2020</span>
+            <a href="/about" target="_blank">YJM</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">16.1k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/wolverine12138" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:yuscut2020@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=852501203" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 852501203" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/search.xml", 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>

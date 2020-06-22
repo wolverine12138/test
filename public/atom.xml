@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>YJM OpenSrc</title>
+  
+  <subtitle>怕什么真理无穷，我就蹭蹭不进去</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://www.yjm-opensrc.xyz/"/>
+  <updated>2020-03-30T12:59:11.172Z</updated>
+  <id>https://www.yjm-opensrc.xyz/</id>
+  
+  <author>
+    <name>YJM</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>平方反比规律</title>
+    <link href="https://www.yjm-opensrc.xyz/2020/03/30/ping-fang-fan-bi-gui-lu/"/>
+    <id>https://www.yjm-opensrc.xyz/2020/03/30/ping-fang-fan-bi-gui-lu/</id>
+    <published>2020-03-30T12:57:28.000Z</published>
+    <updated>2020-03-30T12:59:11.172Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;人们发现电荷有正负两种，而且同性相斥，异性相吸。后来库伦发现了电荷之间相互作用的定量关系，它发现电荷之间的作用力跟距离的平方成反比的。也就是说，如果我把两个电荷之间的距离扩大为原来的两倍，这两个电荷之间的作用力就会减少为原来的四分之一，扩大为三倍就减少为九分之一。&lt;/p&gt;
+
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>电机学入门——麦克斯韦方程</title>
+    <link href="https://www.yjm-opensrc.xyz/2020/03/23/dian-ji-xue-ru-men-mai-ke-si-wei-fang-cheng/"/>
+    <id>https://www.yjm-opensrc.xyz/2020/03/23/dian-ji-xue-ru-men-mai-ke-si-wei-fang-cheng/</id>
+    <published>2020-03-23T10:17:03.000Z</published>
+    <updated>2020-06-22T04:31:18.897Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;电机学入门第一步，从理解麦克斯韦方程组开始。&lt;br&gt;本文涉及大量公式，没有公式的理解没有灵魂。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;麦克斯韦方程组&quot;&gt;&lt;a href=&quot;#麦克斯韦方程组&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="电机" scheme="https://www.yjm-opensrc.xyz/categories/%E7%94%B5%E6%9C%BA/"/>
+    
+      <category term="电机学" scheme="https://www.yjm-opensrc.xyz/categories/%E7%94%B5%E6%9C%BA/%E7%94%B5%E6%9C%BA%E5%AD%A6/"/>
+    
+    
+      <category term="麦克斯韦方程组" scheme="https://www.yjm-opensrc.xyz/tags/%E9%BA%A6%E5%85%8B%E6%96%AF%E9%9F%A6%E6%96%B9%E7%A8%8B%E7%BB%84/"/>
+    
+      <category term="曲线曲面积分" scheme="https://www.yjm-opensrc.xyz/tags/%E6%9B%B2%E7%BA%BF%E6%9B%B2%E9%9D%A2%E7%A7%AF%E5%88%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>我在建立静态博客时都遇到了什么（二）</title>
+    <link href="https://www.yjm-opensrc.xyz/2020/02/16/wo-zai-jian-li-jing-tai-bo-ke-shi-du-yu-dao-liao-shi-me-er/"/>
+    <id>https://www.yjm-opensrc.xyz/2020/02/16/wo-zai-jian-li-jing-tai-bo-ke-shi-du-yu-dao-liao-shi-me-er/</id>
+    <published>2020-02-16T03:03:02.000Z</published>
+    <updated>2020-02-16T13:37:52.075Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;搭好环境后其实已经可以开始写作了，但总会遇到新的小毛病或者又想添加新的插件，这一篇就是对后续内容的补充，不定期更新。&lt;/li&gt;
+&lt;li&gt;现在想要添加的是对ssh公钥配置、转义字符与数学公式渲染的彻底解决、hexo
+        
+      
+    
+    </summary>
+    
+      <category term="Hexo" scheme="https://www.yjm-opensrc.xyz/categories/Hexo/"/>
+    
+    
+      <category term="Hexo" scheme="https://www.yjm-opensrc.xyz/tags/Hexo/"/>
+    
+      <category term="Blog" scheme="https://www.yjm-opensrc.xyz/tags/Blog/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>我在建立静态博客时都遇到了什么</title>
+    <link href="https://www.yjm-opensrc.xyz/2020/02/09/wo-zai-jian-li-jing-tai-bo-ke-shi-du-yu-dao-liao-shi-me/"/>
+    <id>https://www.yjm-opensrc.xyz/2020/02/09/wo-zai-jian-li-jing-tai-bo-ke-shi-du-yu-dao-liao-shi-me/</id>
+    <published>2020-02-09T03:34:16.000Z</published>
+    <updated>2020-02-16T09:22:54.173Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;为了让我第一个有意义的域名有意义，我决定折腾一个自己的博客，也是记录下我自己的踩坑经历。&lt;/li&gt;
+&lt;li&gt;五块钱买的域名和一整套免费的服务让我找到了Hexo的组织，使用Hexo + Coding +
+        
+      
+    
+    </summary>
+    
+      <category term="Hexo" scheme="https://www.yjm-opensrc.xyz/categories/Hexo/"/>
+    
+    
+      <category term="Hexo" scheme="https://www.yjm-opensrc.xyz/tags/Hexo/"/>
+    
+      <category term="Blog" scheme="https://www.yjm-opensrc.xyz/tags/Blog/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>[Hexo] Theme BeanTech</title>
+    <link href="https://www.yjm-opensrc.xyz/2020/02/09/hexo-theme-beantech/"/>
+    <id>https://www.yjm-opensrc.xyz/2020/02/09/hexo-theme-beantech/</id>
+    <published>2020-02-09T03:30:24.000Z</published>
+    <updated>2020-02-16T09:22:25.591Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;这是原主题移植者的Readme，这里保留下来，有需要的自行取用。&lt;/p&gt;
+&lt;p&gt;Ported Theme of &lt;a href=&quot;https://github.com/Huxpro/huxpro.github.io&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="Hexo" scheme="https://www.yjm-opensrc.xyz/categories/Hexo/"/>
+    
+    
+      <category term="Hexo" scheme="https://www.yjm-opensrc.xyz/tags/Hexo/"/>
+    
+      <category term="Blog" scheme="https://www.yjm-opensrc.xyz/tags/Blog/"/>
+    
+  </entry>
+  
+</feed>
